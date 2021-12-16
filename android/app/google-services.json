@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "416973470722",
+    "project_id": "scannersanitarios",
+    "storage_bucket": "scannersanitarios.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416973470722:android:6f0ade5457a6c2da00fb1b",
+        "android_client_info": {
+          "package_name": "com.qrcodesptech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416973470722-r0j67e9r0jhn8nh0jv4c6dsp5778s3k0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFPuWPoFwUY6ympWZ2k24UpQG1b5KP5BE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416973470722-r0j67e9r0jhn8nh0jv4c6dsp5778s3k0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

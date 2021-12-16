@@ -13,6 +13,7 @@ import {
   ImageBackground,
   TextInput,
 } from 'react-native';
+import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 export default function App({navigation}) {
  
@@ -33,8 +34,11 @@ export default function App({navigation}) {
      
      }
      */
-    
-     navigation.navigate('Home');
+     if(auth().currentUser){
+        navigation.navigate('Home');
+     }else{
+     navigation.navigate('Login');
+     }
      console.log('serase')
     },2000);
 
@@ -55,7 +59,7 @@ export default function App({navigation}) {
   return (
     
     <View style={styles.container}>
-       <Image source={require('../../assets/logo.jpg')} style={{width: 300, height: 300}} />
+       <Image source={require('../../../assets/logo.jpg')} style={{width: 300, height: 300}} />
     </View>
   )
   
