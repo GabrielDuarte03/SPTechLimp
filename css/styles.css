@@ -1,0 +1,16 @@
+.todo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+    min-height: 500px;
+}
+.metade1{
+    background-color: antiquewhite;
+    min-height: 300px;
+}
+.metade2{
+    background-color: antiquewhite;
+    min-height: 300px;
+}
