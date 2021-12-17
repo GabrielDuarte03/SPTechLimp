@@ -54,8 +54,8 @@ export default function App({navigation}) {
   }
 
   async function salvarBanco(andar) {
-    var data = new Date();
-    var dia = data.getDate() > 10 ? data.getDate() : '0' + data.getDate();
+    var data = new Date().getTime();
+    /*var dia = data.getDate() > 10 ? data.getDate() : '0' + data.getDate();
     var mes =
       data.getMonth() + 1 > 10 ? data.getMonth() + 1 : '0' + data.getMonth();
     var ano = data.getFullYear();
@@ -64,7 +64,9 @@ export default function App({navigation}) {
       data.getMinutes() > 10 ? data.getMinutes() : '0' + data.getMinutes();
     console.log(
       'data: ' + dia + '/' + mes + '/' + ano + ' ' + hora + ':' + minuto,
-    );
+    );*/
+    let date = new Date(Date.UTC(year, month - 1, day, hour, minute, second));
+let timeStamp =  date.getTime() / 1000;
 
     await firestore()
       .collection('Passadas')
@@ -72,8 +74,7 @@ export default function App({navigation}) {
       .set({
         nome: auth().currentUser.displayName,
         andar: andar,
-        data: dia + '/' + mes + '/' + ano,
-        hora: hora + ':' + minuto,
+        data: timeStamp
       })
       .then(() => {
         console.log('salvo');
