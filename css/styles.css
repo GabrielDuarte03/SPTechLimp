@@ -7,10 +7,44 @@
     min-height: 500px;
 }
 .metade1{
-    background-color: antiquewhite;
-    min-height: 300px;
+    background-color: #EEF5F9;
+    min-height: 500px;
+    min-width: 400px;
+    border: 1px solid #000;
+    border-right-color: #000;
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    margin-right: -80px;
+    padding-right: 12px;
+}
+.label1{
+    font-size: 17px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: -40px;
+}
+.botaoSalvar{
+    background-color: #ED145B;
+    border: 0px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.input{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .metade2{
-    background-color: antiquewhite;
-    min-height: 300px;
+    background-color: #EEF5F9;
+    min-height: 500px;
+    min-width: 400px;
 }
