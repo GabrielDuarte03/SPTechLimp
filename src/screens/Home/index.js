@@ -114,12 +114,13 @@ export default function App({navigation}) {
         <View style={{display: 'flex', direction: 'row'}}>
         <Text style={styles.title}>Olá, {nome}</Text>
         <TouchableOpacity activeOpacity={0.5} onPress={async ()=>{
-          showAlert(2);
+         
           await auth().signOut().then(()=>{
-            hideAlert(2);
+           
+            setNome('');
             navigation.navigate('Login');
           }).catch(e=>{
-            hideAlert(2);
+           
             console.log(e);
             Alert.alert('Erro ao sair!', 'Não foi possível sair, tente novamente!')
           });
@@ -130,11 +131,9 @@ export default function App({navigation}) {
       </View>
 
       <View style={styles.body}>
-        <TouchableOpacity onPress={()=>{
-          salvarBanco("1 andar");
-        }}>
+        
         <Text style={styles.subtitle}>Leia abaixo o QRCode</Text>
-        </TouchableOpacity>
+        
       </View>
 
       <QRCodeScanner

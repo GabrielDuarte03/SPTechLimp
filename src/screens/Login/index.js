@@ -92,6 +92,7 @@ export default function App({navigation}) {
             value={email}
             onChangeText={text => setEmail(text)}
             placeholder="Email"
+            autoCapitalize='none'
             returnKeyType="next"
             ref={emailRef}
             onSubmitEditing={() => senhaRef.current.focus()}
@@ -103,6 +104,8 @@ export default function App({navigation}) {
             ref={senhaRef}
             value={senha}
             returnKeyType="next"
+            autoCapitalize='none'
+            
             onSubmitEditing={() => Keyboard.dismiss()}
             style={styles.input}
             secureTextEntry={secure}
