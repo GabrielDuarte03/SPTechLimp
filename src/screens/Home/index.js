@@ -16,10 +16,12 @@ import {
   Alert,
   BackHandler,
 } from 'react-native';
+ 
 import AwesomeAlert from 'react-native-awesome-alerts';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 import firestore from '@react-native-firebase/firestore';
+import Timestamp from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
 export default function App({navigation}) {
@@ -40,7 +42,9 @@ export default function App({navigation}) {
     BackHandler.addEventListener('hardwareBackPress', () => {
       return true;
     });
+
   }, []);
+    
   const [secure, setSecure] = useState(true);
   function mostra() {
     setSecure(false);
@@ -54,7 +58,7 @@ export default function App({navigation}) {
   }
 
   async function salvarBanco(andar) {
-    var data = new Date().getTime();
+    var data = new Date().toUTCString();
     /*var dia = data.getDate() > 10 ? data.getDate() : '0' + data.getDate();
     var mes =
       data.getMonth() + 1 > 10 ? data.getMonth() + 1 : '0' + data.getMonth();
@@ -65,8 +69,7 @@ export default function App({navigation}) {
     console.log(
       'data: ' + dia + '/' + mes + '/' + ano + ' ' + hora + ':' + minuto,
     );*/
-    let date = new Date(Date.UTC(year, month - 1, day, hour, minute, second));
-let timeStamp =  date.getTime() / 1000;
+
 
     await firestore()
       .collection('Passadas')
@@ -74,7 +77,7 @@ let timeStamp =  date.getTime() / 1000;
       .set({
         nome: auth().currentUser.displayName,
         andar: andar,
-        data: timeStamp
+        data: firestore.Timestamp.fromDate(new Date()),
       })
       .then(() => {
         console.log('salvo');
@@ -127,7 +130,11 @@ let timeStamp =  date.getTime() / 1000;
       </View>
 
       <View style={styles.body}>
+        <TouchableOpacity onPress={()=>{
+          salvarBanco("1 andar");
+        }}>
         <Text style={styles.subtitle}>Leia abaixo o QRCode</Text>
+        </TouchableOpacity>
       </View>
 
       <QRCodeScanner
